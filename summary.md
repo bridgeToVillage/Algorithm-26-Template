@@ -1,3 +1,44 @@
+## 预习总结
+
+大脑不习惯记忆零散的知识，把知识串成脑图就比较好记忆。
+
+### 数据结构
+
+**一维**
+
+- 基础：数组array，链表linked list
+- 高级：栈stack，队列queue，双端队列deque，集合set，映射map，etc
+
+**二维**
+
+- 基础：树，图graph
+- 高级: 二叉搜索树binary search tree(red-black tree,AVL)，堆heap，并查集disjoint set，字典树Trie，etc
+
+**特殊**
+
+- 位运算 Bitwise，布隆过滤器 BloomFilter
+- 缓存LRU Cache
+
+### 算法
+
+- if-else, switch ——>branch
+
+- for , while loop ——>iteration
+
+- 递归Recursion(Divide & Conquer, Backtrace)
+
+- 搜索Search: 深度优先搜索 Depth first search，广度优先搜索 Breadth first search, A*, etc
+
+- 动态规划 Dynamic Programming
+
+- 二分查找 Binary Search
+
+- 贪心 Greedy
+
+- 数学 Math, 几何 Geometry
+
+  注意：在头脑中回忆每种算法的思想和代码模板
+
 ## 第一周学习总结
 
  
