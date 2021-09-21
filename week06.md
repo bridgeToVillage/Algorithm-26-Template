@@ -44,7 +44,7 @@
 
 #### 题解
 
-此题是典型的动态规划题目，可以作为入门题，比爬楼梯稍微复杂点。
+此题是典型的动态规划题目，可以作为入门题，不过要比爬楼梯还要稍微复杂点。
 
 所谓动态规划，本质上也是递归，找重复，不过与递归的区别是要把问题`分解为子问题`，再分别去找子问题的重复性，最后把结果合并，得到最终解。
 
@@ -82,8 +82,10 @@ var minPathSum = function(grid) {
         dp[0][0] = grid[0][0];
         for (var i = 0; i < r; i++) {
             for (var j = 0; j < c; j++) {
+                // 在第一行
                 if(i===0&&j!==0)
                 dp[i][j] = dp[i][j - 1] + grid[i][j];
+                // 在第一列
                 else if(i!== 0&& j===0)
                 dp[i][j] = dp[i-1][j] + grid[i][j];
                 else if(i!==0&&j!==0)
@@ -98,7 +100,7 @@ var minPathSum = function(grid) {
 
 时间复杂度：O(m*n)
 
-空间复杂度：O(1)
+空间复杂度：O(m*n)，这个要解释下，因为创建了一个二维数组，所以复杂度是`O(m*n)`
 
 链接：https://leetcode-cn.com/problems/minimum-path-sum
 
