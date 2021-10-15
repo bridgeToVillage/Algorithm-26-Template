@@ -150,3 +150,90 @@ function heapify(arr, len, i) {
 }
 ```
 
+
+
+### 作业2
+
+- [有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)（Facebook、亚马逊、谷歌在半年内面试中考过）
+
+#### 题目描述
+
+给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+
+注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
+
+ 
+
+**示例 1:**
+
+```js
+输入: s = "anagram", t = "nagaram"
+输出: true
+```
+
+
+**示例 2:**
+
+```js
+输入: s = "rat", t = "car"
+输出: false
+```
+
+
+
+**提示:**
+
+- 1 <= s.length, t.length <= 5 * 104
+- s 和 t 仅包含小写字母
+
+
+
+**进阶**: 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
+
+
+
+#### 题解
+
+题目其实很简单，简单到想直接上手去数，如果手指头不够，可以加上脚指头。那如果用计算机语言来表达，是否有更合适的方法呢，肯定是有的！可以直接用上js数组的sort方法，先排序再重新组合为字符串，最后就能判断了。这是最简单的！直接上代码了：
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    return s.length == t.length && [...s].sort().join('') === [...t].sort().join('')
+};
+```
+
+这个得复杂度分析，我有点不知如何下手，是不是得看下源码了。。
+
+这道题如果按这个解法，其实也没必要写题解了，下面介绍另一个解法，也是值得掌握的一个技巧。由于字符串全是小写字母，再联想到`charCodeAt`api可以返回字母对应的`unicode值`，这就打开了一个新思路：先把一个字符串映射到一个数组中，索引位置代表26个英文字母，索引值代表该字母出现次数；然后另一个字符串映射之后与前一个一一对比就能有结果了。有了这个思路，就可以试着自己写下代码了。
+
+下面给出代码：
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    var num = new Array(26).fill(0);
+    for(var ch of s) {
+        num[ch.charCodeAt() - 'a'.charCodeAt()]++
+    }
+    for(var ct of t){
+        num[ct.charCodeAt() - 'a'.charCodeAt()] > 0 && num[ct.charCodeAt() - 'a'.charCodeAt()]--
+    }
+
+    var rs = num.reduce((pre, cur,index) =>{
+        return pre + cur
+    })
+    return rs === 0 && s.length === t.length ? true : false
+};
+```
+
+
+
