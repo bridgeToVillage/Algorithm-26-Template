@@ -2,7 +2,8 @@
 
 ### 初级搜索
 
-![image-20210921200708911](E:\doc\学习资料\微信公众号\pic\image-20210921200708911.png)
+
+![](https://files.mdnice.com/user/5287/aa28fd07-89c3-4c26-bdb5-df33b28e7bad.png)
 
 
 
@@ -12,24 +13,33 @@
 
 #### 剪枝
 
-![image-20210921201913919](E:\doc\学习资料\微信公众号\pic\image-20210921201913919.png)
+
+![](https://files.mdnice.com/user/5287/836d6e99-0512-4aff-80e2-f6c4427461c9.png)
 
 
 
-![image-20210921202824029](E:\doc\学习资料\微信公众号\pic\image-20210921202824029.png)
+
+
+![](https://files.mdnice.com/user/5287/b64b9bd1-c58d-4193-9a41-c7deef2adafa.png)
+
 
 #### 双向BFS
 
-![image-20210921203133608](E:\doc\学习资料\微信公众号\pic\image-20210921203133608.png)
+
+![](https://files.mdnice.com/user/5287/b1956e76-e29a-4ea5-8417-60222c5f64ac.png)
 
 
 
-![image-20210921203201968](E:\doc\学习资料\微信公众号\pic\image-20210921203201968.png)
+
+![](https://files.mdnice.com/user/5287/e6f31ec4-948d-4f4b-b367-f2dbf223247e.png)
+
 
 #### 启发式搜索(A*)
 
-![image-20210921210449298](E:\doc\学习资料\微信公众号\pic\image-20210921210449298.png)
+![](https://files.mdnice.com/user/5287/3231f058-0098-4304-9fdd-587421dd3895.png)
 
 
 
-![image-20210921210506625](E:\doc\学习资料\微信公众号\pic\image-20210921210506625.png)
+
+![](https://files.mdnice.com/user/5287/5a1c8a1b-fc16-4eda-bf93-6e5ba0f88892.png)
+
