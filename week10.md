@@ -128,3 +128,152 @@ var reverseStr = function(s, k) {
 
 
 题目链接：https://leetcode-cn.com/problems/reverse-string-ii
+
+
+
+### 作业3
+
+- [字符串解码](https://leetcode-cn.com/problems/decode-string/)
+
+#### 题目描述
+
+给定一个经过编码的字符串，返回它解码后的字符串。
+
+编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
+
+你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。
+
+此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。
+
+ 
+
+示例 1：
+
+输入：s = "3[a]2[bc]"
+输出："aaabcbc"
+示例 2：
+
+输入：s = "3[a2[c]]"
+输出："accaccacc"
+示例 3：
+
+输入：s = "2[abc]3[cd]ef"
+输出："abcabccdcdcdef"
+示例 4：
+
+输入：s = "abc3[cd]xyz"
+输出："abccdcdcdxyz"
+
+
+
+#### 题解
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var decodeString = function(s) {
+    let numStack = [];        // 存倍数的栈
+    let strStack = [];        // 存 待拼接的str 的栈
+    let num = 0;              // 倍数的“搬运工”
+    let result = '';          // 字符串的“搬运工”
+    for (const char of s) {   // 逐字符扫描
+        if (!isNaN(char)) {   // 遇到数字
+            num = num * 10 + Number(char); // 算出倍数
+        } else if (char == '[') {  // 遇到 [
+            strStack.push(result); // result串入栈
+            result = '';           // 入栈后清零
+            numStack.push(num);    // 倍数num进入栈等待
+            num = 0;               // 入栈后清零
+        } else if (char == ']') {  // 遇到 ]，两个栈的栈顶出栈
+            let repeatTimes = numStack.pop(); // 获取拷贝次数
+            result = strStack.pop() + result.repeat(repeatTimes); // 构建子串
+        } else {                   
+            result += char;        // 遇到字母，追加给result串
+        }
+    }
+    return result;
+};
+```
+
+
+
+链接：https://leetcode-cn.com/problems/decode-string
+
+
+
+#### 作业4
+
+- [翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string/)（微软、字节跳动、苹果在半年内面试中考过）
+
+#### 题目描述
+
+
+
+给你一个字符串 s ，逐个翻转字符串中的所有 单词 。
+
+单词 是由非空格字符组成的字符串。s 中使用至少一个空格将字符串中的 单词 分隔开。
+
+请你返回一个翻转 s 中单词顺序并用单个空格相连的字符串。
+
+说明：
+
+输入字符串 s 可以在前面、后面或者单词间包含多余的空格。
+翻转后单词间应当仅用一个空格分隔。
+翻转后的字符串中不应包含额外的空格。
+
+
+示例 1：
+
+输入：s = "the sky is blue"
+输出："blue is sky the"
+示例 2：
+
+输入：s = "  hello world  "
+输出："world hello"
+解释：输入字符串可以在前面或者后面包含多余的空格，但是翻转后的字符不能包括。
+示例 3：
+
+输入：s = "a good   example"
+输出："example good a"
+解释：如果两个单词间有多余的空格，将翻转后单词间的空格减少到只含一个。
+示例 4：
+
+输入：s = "  Bob    Loves  Alice   "
+输出："Alice Loves Bob"
+示例 5：
+
+输入：s = "Alice does not even like bob"
+输出："bob like even not does Alice"
+
+
+提示：
+
+1 <= s.length <= 104
+s 包含英文大小写字母、数字和空格 ' '
+s 中 至少存在一个 单词
+
+
+进阶：
+
+请尝试使用 O(1) 额外空间复杂度的原地解法。
+
+
+
+#### 题解：
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+    return s.trim().split(/\s+/).reverse().join(' ')
+};
+```
+
+
+
+
+链接：https://leetcode-cn.com/problems/reverse-words-in-a-string
